@@ -1,0 +1,47 @@
+﻿@model IEnumerable<prjNotesApp.tabNote>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tasks</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contents)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tabLogin.username)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+   
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.contents)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tabLogin.username)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.number }) |
+            @Html.ActionLink("Details", "Details", new { id=item.number }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.number })
+        </td>
+    </tr>
+}
+
+</table>
